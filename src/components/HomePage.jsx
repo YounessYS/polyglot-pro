@@ -23,23 +23,21 @@ export default function HomePage({ setFile, setAudioInput }) {
       console.log(err.message);
       return;
     }
-
     setRecordingStatus("recording");
 
     const media = new MediaRecorder(tempStream, { type: mimeType });
-
     mediaRecorder.current = media;
 
     mediaRecorder.current.start();
     let localAudioChunks = [];
     mediaRecorder.current.ondataavailable = (e) => {
-      if (typeof event.data === "undefined") {
+      if (typeof e.data === "undefined") {
         return;
       }
-      if (event.data.size === 0) {
+      if (e.data.size === 0) {
         return;
       }
-      localAudioChunks.push(event.data);
+      localAudioChunks.push(e.data);
     };
     setAudioChunks(localAudioChunks);
   }
@@ -49,7 +47,7 @@ export default function HomePage({ setFile, setAudioInput }) {
     console.log("Stop recording");
 
     mediaRecorder.current.stop();
-    mediaRecorder.current.onStop = () => {
+    mediaRecorder.current.onstop = () => {
       const audioBlob = new Blob(audioChunks, { type: mimeType });
       setAudioInput(audioBlob);
       setAudioChunks([]);
