@@ -8,7 +8,6 @@ export default function Information(props) {
   const [translation, setTranslation] = useState(null);
   const [toLanguage, setToLanguage] = useState("Select language");
   const [translating, setTranslating] = useState(null);
-  console.log(output);
 
   const worker = useRef();
 
@@ -25,18 +24,14 @@ export default function Information(props) {
     const onMessageReceived = async (e) => {
       switch (e.data.status) {
         case "initiate":
-          console.log("DOWNLOADING");
           break;
         case "progress":
-          console.log("LOADING");
           break;
         case "update":
           setTranslation(e.data.output);
-          console.log(e.data.output);
           break;
         case "complete":
           setTranslating(false);
-          console.log("DONE");
           break;
       }
     };
