@@ -1,6 +1,6 @@
 export default function FileDisplay({ file, audioInput, handleAudioReset }) {
   return (
-    <main className="flex-1 p-4 flex flex-col gap-3 text-center sm:gap-4 md:gap-5 justify-center pb-20 w-fit max-w-full mx-auto">
+    <main className="flex-1 p-4 flex flex-col gap-3 text-center sm:gap-4  justify-center pb-20 w-fit max-w-full mx-auto">
       <h1 className="font-semibold text-4xl sm:text-5xl md:text-6xl">
         Your <span className="text-white bold">File</span>
       </h1>
@@ -15,8 +15,9 @@ export default function FileDisplay({ file, audioInput, handleAudioReset }) {
         >
           Reset
         </button>
-        <button className="btn px-4 py-2 rounded-lg text-black">
+        <button className="btn px-3 p-2 rounded-lg text-black flex items-center gap-2 font-medium">
           <p>Transcribe</p>
+          <i className="fa-solid fa-pen-nib"></i>
         </button>
       </div>
     </main>
