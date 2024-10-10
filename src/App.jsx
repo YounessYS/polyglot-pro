@@ -45,6 +45,7 @@ export default function App() {
           break;
         case "RESULT":
           setOutput(e.data.results);
+          console.log(e.data.results);
           break;
         case "INFERENCE_DONE":
           setFinished(true);
@@ -88,7 +89,7 @@ export default function App() {
       <section className="min-h-screen flex flex-col">
         <Header />
         {output ? (
-          <Information />
+          <Information output={output} />
         ) : loading ? (
           <Transcribing />
         ) : audioExists ? (
@@ -96,6 +97,7 @@ export default function App() {
             file={file}
             audioInput={setAudioInput}
             handleAudioReset={handleAudioReset}
+            handleFormSubmission={handleFormSubmission}
           />
         ) : (
           <HomePage setFile={setFile} setAudioInput={setAudioInput} />

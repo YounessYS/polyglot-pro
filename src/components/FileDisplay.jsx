@@ -1,4 +1,9 @@
-export default function FileDisplay({ file, audioInput, handleAudioReset }) {
+export default function FileDisplay({
+  file,
+  audioInput,
+  handleAudioReset,
+  handleFormSubmission,
+}) {
   return (
     <main className="flex-1  p-4 flex flex-col gap-3 text-center sm:gap-4 justify-center pb-20 w-full max-w-prose mx-auto">
       <h1 className="font-semibold text-4xl sm:text-5xl md:text-6xl">
@@ -15,7 +20,10 @@ export default function FileDisplay({ file, audioInput, handleAudioReset }) {
         >
           Reset
         </button>
-        <button className="btn px-3 p-2 rounded-lg text-black flex items-center gap-2 font-medium">
+        <button
+          onClick={handleFormSubmission}
+          className="btn px-3 p-2 rounded-lg text-black flex items-center gap-2 font-medium"
+        >
           <p>Transcribe</p>
           <i className="fa-solid fa-pen-nib"></i>
         </button>
