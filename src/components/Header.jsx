@@ -4,7 +4,7 @@ export default function Header() {
       <h1 className="font-medium">
         Polyglot<span className="text-white bold">Pro</span>
       </h1>
-      <button className="flex items-center gap-2">
+      <button className="flex items-center gap-2 btn px-4 py-2 rounded-lg text-black">
         <p>New</p>
         <i className="fa-solid fa-plus"></i>
       </button>
